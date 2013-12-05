@@ -1,11 +1,10 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>Title</title>
+    <title><?= isset($page->title) ? $page->title : '' ?></title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
     <link rel="stylesheet/less" type="text/css" href="static/less/screen.less"/>
-
-
     <script type="text/javascript">
         less = {
             env: "development", // or "production"
@@ -52,7 +51,10 @@
 
 <div class="container cms">
 
-    <?= isset($content) ? $content : ''; ?>
+    <h1><?= isset($page->title) ? $page->title : '' ?></h1>
+    <div>
+        <?= isset($page->content) ? $page->content : '' ?>
+    </div>
 
 </div>
 

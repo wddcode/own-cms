@@ -1,10 +1,31 @@
 @import "_variables.less";
+
 @import "_bootstrap.less";
+
+@link-color: #00ffff;
 
 body {
 
+  // background-color: yellowgreen;
+
   .cms.container {
     margin-top: @navbar-height + 20;
+
+    a {
+      color: @link-color;
+      &:hover {
+        color: white;
+        background-color: @link-color;
+      }
+      &:visited {
+        color: saturate(@link-color, -50);
+      }
+    }
+
+    h1 {
+      color: saturate(#ff00ff, -50);
+    }
+
   }
 
 }
