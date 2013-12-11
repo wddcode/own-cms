@@ -30,8 +30,6 @@ $result = mysql_query($query);
 // map result to object
 $page = mysql_fetch_object($result);
 
-print $query;
-exit;
 
 
 $query = "SELECT id, title, parent_id FROM `pages` WHERE `parent_id` IS NULL ORDER BY `position` ASC LIMIT 0, 100;";
