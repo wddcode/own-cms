@@ -9,3 +9,4 @@ if (!$conn) {
 // mysql_set_charset('utf8', $conn);
 
 mysql_select_db($db_name, $conn);
+

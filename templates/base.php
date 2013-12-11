@@ -31,11 +31,35 @@
             <a class="navbar-brand" href="#">Example</a>
         </div>
         <div class="navbar-collapse collapse">
+
             <ul class="nav navbar-nav">
-                <li class="active"><a href="#">Home</a></li>
-                <li><a href="#about">About</a></li>
-                <li><a href="#contact">Contact</a></li>
+
+                <?php
+
+                    foreach($nav as $item) {
+
+                        $html = '';
+
+                        if(isset($item->active) && $item->active) {
+                            $html .= '<li class="active">';
+                        } else {
+                            $html .= '<li>';
+                        }
+
+                        $html .= '<a href="?page_id=' . $item->id . '">';
+                        $html .= $item->title;
+                        $html .= '</a>';
+                        $html .= '</li>';
+
+                        print $html;
+                    }
+
+                ?>
+
+
             </ul>
+
+
             <ul class="nav navbar-nav navbar-right">
                 <li class="dropdown">
                     <a href="#" class="dropdown-toggle" data-toggle="dropdown">Account <b class="caret"></b></a>
@@ -55,6 +79,35 @@
     <div>
         <?= isset($page->content) ? $page->content : '' ?>
     </div>
+
+    <ul class="nav nav-pills nav-stacked">
+
+
+        <?php
+
+        foreach($subnav as $item) {
+
+            $html = '';
+
+            if(isset($item->active) && $item->active) {
+                $html .= '<li class="active">';
+            } else {
+                $html .= '<li>';
+            }
+
+            $html .= '<a href="?page_id=' . $item->id . '">';
+            $html .= $item->title;
+            $html .= '</a>';
+            $html .= '</li>';
+
+            print $html;
+        }
+
+        ?>
+
+
+    </ul>
+
 
 </div>
 
