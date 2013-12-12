@@ -61,6 +61,8 @@
 
 
             <ul class="nav navbar-nav navbar-right">
+
+
                 <li class="dropdown">
                     <a href="#" class="dropdown-toggle" data-toggle="dropdown">Account <b class="caret"></b></a>
                     <ul class="dropdown-menu">
@@ -68,6 +70,15 @@
                         <li><a href="#">Administration</a></li>
                     </ul>
                 </li>
+
+
+                <?php
+                if($user){
+                    $uri = '?page_id=' . $page->id . '&mode=edit';
+                    print '<li><a href="' . $uri . '">Edit page</a></li>';
+                }
+                ?>
+
             </ul>
         </div>
     </div>
@@ -75,39 +86,7 @@
 
 <div class="container cms">
 
-    <h1><?= isset($page->title) ? $page->title : '' ?></h1>
-    <div>
-        <?= isset($page->content) ? $page->content : '' ?>
-    </div>
-
-    <ul class="nav nav-pills nav-stacked">
-
-
-        <?php
-
-        foreach($subnav as $item) {
-
-            $html = '';
-
-            if(isset($item->active) && $item->active) {
-                $html .= '<li class="active">';
-            } else {
-                $html .= '<li>';
-            }
-
-            $html .= '<a href="?page_id=' . $item->id . '">';
-            $html .= $item->title;
-            $html .= '</a>';
-            $html .= '</li>';
-
-            print $html;
-        }
-
-        ?>
-
-
-    </ul>
-
+    <?= isset($content) ? $content : '' ?>
 
 </div>
 
